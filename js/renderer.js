@@ -1,5 +1,5 @@
 var test = document.getElementById('test');
-test.innerHTML = "balls"
+test.innerHTML = "Test"
 
 var map = {
     current: [

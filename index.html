@@ -6,7 +6,9 @@
 </head>
 <body>
     <h1 id="test">Hello World!</h1>
+	
     <!-- All of the Node.js APIs are available in this renderer process. -->
+	
     We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
@@ -14,7 +16,6 @@
     <canvas id="game" width="100" height="100"></canvas>
 
     <script>
-        // You can also require other files to run in this process
         require('./js/renderer.js')
     </script>
 </body>
