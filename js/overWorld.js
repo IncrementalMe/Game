@@ -11,7 +11,7 @@ var overWorld = {
         [0, 1, 0, 1, 0, 1, 0, 0, 1, 0],
         [0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
         [0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
-        [0, 1, 1, 1, 0, 1, 1, 1, 1, 0],
+        [0, 3, 1, 1, 0, 1, 1, 1, 1, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
 
     player: {
@@ -26,10 +26,17 @@ var overWorld = {
             if (this.pos == null) { return }
             var targetPos = { x: this.pos.x + dir.x, y: this.pos.y + dir.y }
 
-            if (overWorld.current[targetPos.y][targetPos.x] == 1) {
-                overWorld.current[targetPos.y][targetPos.x] = 2
-                overWorld.current[this.pos.y][this.pos.x] = 1
-                this.pos = targetPos
+            switch (overWorld.current[targetPos.y][targetPos.x]) {
+                case 1:
+                    overWorld.current[targetPos.y][targetPos.x] = 2
+                    overWorld.current[this.pos.y][this.pos.x] = 1
+                    this.pos = targetPos
+                    break
+
+                //case 3:
+                    // Change to battle screen
+                    //
+                    
             }
         }
     }

@@ -23,7 +23,7 @@ var draw = {
     },
 
     OnLoad: function () {
-        ctx = document.getElementById('game').getContext("2d")
+        ctx = document.getElementById('mainCanvas').getContext("2d")
         ctx.canvas.width = overWorld.width * overWorld.tileWidth
         ctx.canvas.height = overWorld.height * overWorld.tileHeight
         requestAnimationFrame(draw.Update)
@@ -44,7 +44,13 @@ var draw = {
     },
 
     Tile: function (pos, tile) {
+        var fill = true
+
         switch (tile) {
+            case 3:
+                fill = false
+                image = true
+                break;
             case 2:
                 ctx.fillStyle = "#123b98"
                 break;
@@ -54,6 +60,20 @@ var draw = {
             default:
                 ctx.fillStyle = "#5aa457"
         }
-        ctx.fillRect(pos.x * overWorld.tileWidth, pos.y * overWorld.tileHeight, overWorld.tileWidth, overWorld.tileHeight)
+
+        var target = {
+            x: pos.x * overWorld.tileWidth,
+            y: pos.y * overWorld.tileHeight,
+            width: overWorld.tileWidth,
+            height: overWorld.tileHeight
+        }
+
+        if (fill)
+            ctx.fillRect(target.x, target.y, target.width, target.height)
+        else {
+            var img = new Image()
+            img.src = ("./img/teeth.png")
+            ctx.drawImage(img, target.x, target.y, target.width, target.height)
+        }
     }
 }
