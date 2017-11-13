@@ -1,75 +1,6 @@
-var map = {
-    current: [
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0, 1, 1, 1, 1, 0],
-        [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-        [0, 1, 0, 1, 0, 0, 0, 1, 1, 0],
-        [0, 1, 0, 1, 0, 1, 0, 0, 1, 0],
-        [0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-        [0, 1, 0, 0, 0, 0, 0, 1, 0, 0],
-        [0, 1, 1, 1, 0, 1, 1, 1, 1, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-
-    tileWidth: 40,
-    tileHeight: 40,
-}
-map.width = map.current[0].length
-map.height = map.current.length
-
-var player = {
-    pos: null,
-
-    Spawn: function (pos) {
-        map.current[pos.y][pos.x] = 2
-        this.pos = pos
-    },
-
-    TryMove: function (dir) {
-        if (this.pos == null) { return }
-        var targetPos = { x: this.pos.x + dir.x, y: this.pos.y + dir.y }
-
-        if (map.current[targetPos.y][targetPos.x] == 1) {
-            map.current[targetPos.y][targetPos.x] = 2
-            map.current[this.pos.y][this.pos.x] = 1
-            this.pos = targetPos
-        }
-    }
-}
-
 window.onload = () => {
     draw.OnLoad()
-    player.Spawn({ x: 1, y: 1 })
-}
-
-document.onkeydown = function (e) {
-    switch (e.keyCode) {
-        case 38: // up
-            player.TryMove({ x: 0, y: -1 })
-            break;
-        case 39: // right
-            player.TryMove({ x: 1, y: 0 })
-            break;
-        case 40: // down
-            player.TryMove({ x: 0, y: 1 })
-            break;
-        case 37: // left
-            player.TryMove({ x: -1, y: 0 })
-            break;
-
-        case 87: // w
-            player.TryMove({ x: 0, y: -1 })
-            break;
-        case 68: // d
-            player.TryMove({ x: 1, y: 0 })
-            break;
-        case 83: // s
-            player.TryMove({ x: 0, y: 1 })
-            break;
-        case 65: // a
-            player.TryMove({ x: -1, y: 0 })
-            break;
-    }
+    overWorld.player.Spawn({ x: 1, y: 1 })
 }
 
 var draw = {
@@ -93,8 +24,8 @@ var draw = {
 
     OnLoad: function () {
         ctx = document.getElementById('game').getContext("2d")
-        ctx.canvas.width = map.width * map.tileWidth
-        ctx.canvas.height = map.height * map.tileHeight
+        ctx.canvas.width = overWorld.width * overWorld.tileWidth
+        ctx.canvas.height = overWorld.height * overWorld.tileHeight
         requestAnimationFrame(draw.Update)
         ctx.font = "bold 10pt sans-serif"
     },
@@ -102,7 +33,7 @@ var draw = {
     Update: function () {
         if (ctx == null) { return }
 
-        map.current.forEach((row, y) => {
+        overWorld.current.forEach((row, y) => {
             row.forEach((tile, x) => {
                 draw.Tile({ x: x, y: y }, tile)
             })
@@ -123,6 +54,6 @@ var draw = {
             default:
                 ctx.fillStyle = "#5aa457"
         }
-        ctx.fillRect(pos.x * map.tileWidth, pos.y * map.tileHeight, map.tileWidth, map.tileHeight)
+        ctx.fillRect(pos.x * overWorld.tileWidth, pos.y * overWorld.tileHeight, overWorld.tileWidth, overWorld.tileHeight)
     }
 }
