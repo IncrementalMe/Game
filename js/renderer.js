@@ -47,9 +47,6 @@ window.onload = () => {
 
 document.onkeydown = function (e) {
     switch (e.keyCode) {
-        case 37: // left
-            player.TryMove({ x: -1, y: 0 })
-            break;
         case 38: // up
             player.TryMove({ x: 0, y: -1 })
             break;
@@ -58,6 +55,22 @@ document.onkeydown = function (e) {
             break;
         case 40: // down
             player.TryMove({ x: 0, y: 1 })
+            break;
+        case 37: // left
+            player.TryMove({ x: -1, y: 0 })
+            break;
+
+        case 87: // w
+            player.TryMove({ x: 0, y: -1 })
+            break;
+        case 68: // d
+            player.TryMove({ x: 1, y: 0 })
+            break;
+        case 83: // s
+            player.TryMove({ x: 0, y: 1 })
+            break;
+        case 65: // a
+            player.TryMove({ x: -1, y: 0 })
             break;
     }
 }
