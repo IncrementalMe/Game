@@ -1,29 +1,35 @@
 document.onkeydown = function (e) {
+    const remote = require('electron').remote
+
     switch (e.keyCode) {
         case 38: // up
             overWorld.player.TryMove({ x: 0, y: -1 })
-            break;
+            break
         case 39: // right
             overWorld.player.TryMove({ x: 1, y: 0 })
-            break;
+            break
         case 40: // down
             overWorld.player.TryMove({ x: 0, y: 1 })
-            break;
+            break
         case 37: // left
             overWorld.player.TryMove({ x: -1, y: 0 })
-            break;
+            break
 
         case 87: // w
             overWorld.player.TryMove({ x: 0, y: -1 })
-            break;
+            break
         case 68: // d
             overWorld.player.TryMove({ x: 1, y: 0 })
-            break;
+            break
         case 83: // s
             overWorld.player.TryMove({ x: 0, y: 1 })
-            break;
+            break
         case 65: // a
             overWorld.player.TryMove({ x: -1, y: 0 })
-            break;
+            break
+
+        case 27: // escape
+            remote.getCurrentWindow().close()
+            break
     }
 }
