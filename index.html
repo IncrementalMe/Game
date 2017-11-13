@@ -1,19 +1,17 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>GameName</title>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <h1 id="test">Hello World!</h1>
-	
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-	
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1 class="ttCenter" id="test">World Map</h1>
+    <div class="ttCenter">Witty in-dev joke</div>
 
-    <canvas id="game" width="100" height="100"></canvas>
+    <div id="tileWrapper">
+        <canvas id="game"></canvas>
+    </div>
 
     <script>
         require('./js/renderer.js')

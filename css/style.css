@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 600px;
+    font-size: 90%;
+    font-family: sans-serif;
+    overflow: hidden;
+    line-height: 0px;
+    background-color: #808080;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none;
+}
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+img {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+#tileWrapper {
+    margin: 0 auto;
+    height: 100%;
+    margin-top: 20px;
+    background-color: black;
+    border: 10px solid black;
+}
+
+.ttCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ttItalic {
+    font-style: italic;
+}

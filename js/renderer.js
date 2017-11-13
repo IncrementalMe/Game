@@ -1,6 +1,3 @@
-var test = document.getElementById('test');
-test.innerHTML = "Test"
-
 var map = {
     current: [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

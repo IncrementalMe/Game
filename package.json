@@ -1,7 +1,7 @@
 {
-  "name": "Game",
-  "version": "0.0.3",
-  "description": "A new Electron Game",
+  "name": "GameName",
+  "version": "0.0.4",
+  "description": "Just another electron game.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
