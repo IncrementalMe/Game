@@ -68,6 +68,11 @@ var draw = {
             height: overWorld.tileHeight
         }
 
+        if ((pos.x + pos.y) % 2 === 0)
+            ctx.fillStyle = draw.BrightenTile(ctx.fillStyle, 4)
+        else
+            ctx.fillStyle = draw.BrightenTile(ctx.fillStyle, -4)
+        
         if (fill)
             ctx.fillRect(target.x, target.y, target.width, target.height)
         else {
@@ -75,5 +80,17 @@ var draw = {
             img.src = ("./img/teeth.png")
             ctx.drawImage(img, target.x, target.y, target.width, target.height)
         }
+    },
+
+    BrightenTile: function (hexString, amount) {
+        var reg = /[a-z1-9]{2}/g
+        var result
+        var out = "#"
+        while ((result = reg.exec(hexString)) !== null) {
+            var value = parseInt(result, 16) + amount
+            if (value > 255) value = 255
+            out += value.toString(16)
+        }
+        return out
     }
 }
