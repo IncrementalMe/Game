@@ -12,17 +12,17 @@ var draw = {
                 this.frameCount = 1
             }
             else { this.frameCount++ }
-            ctx.fillStyle = "#ff0000"
-            ctx.fillText("FPS: " + this.framesLastSecond, 10, 20)
+            ctx.fillStyle = '#ff0000'
+            ctx.fillText('FPS: ' + this.framesLastSecond, 10, 20)
         }
     },
 
     OnLoad: function () {
-        ctx = document.getElementById('mainCanvas').getContext("2d")
+        ctx = document.getElementById('mainCanvas').getContext('2d')
         ctx.canvas.width = game.map.width * game.map.tileWidth
         ctx.canvas.height = game.map.height * game.map.tileHeight
         requestAnimationFrame(draw.Update)
-        ctx.font = "bold 10pt sans-serif"
+        ctx.font = 'bold 10pt sans-serif'
     },
 
     Update: function () {
@@ -47,13 +47,13 @@ var draw = {
                 image = true
                 break;
             case 2:
-                ctx.fillStyle = "#123b98"
+                ctx.fillStyle = '#123b98'
                 break;
             case 0:
-                ctx.fillStyle = "#685b48"
+                ctx.fillStyle = '#685b48'
                 break;
             default:
-                ctx.fillStyle = "#5aa457"
+                ctx.fillStyle = '#5aa457'
         }
 
         var target = {
@@ -72,7 +72,7 @@ var draw = {
             ctx.fillRect(target.x, target.y, target.width, target.height)
         else {
             var img = new Image()
-            img.src = ("./img/teeth.png")
+            img.src = ('./img/teeth.png')
             ctx.drawImage(img, target.x, target.y, target.width, target.height)
         }
     },
@@ -80,7 +80,7 @@ var draw = {
     BrightenTile: function (hexString, amount) {
         var reg = /[a-z1-9]{2}/g
         var result
-        var out = "#"
+        var out = '#'
         while ((result = reg.exec(hexString)) !== null) {
             var value = parseInt(result, 16) + amount
             if (value > 255) value = 255
