@@ -1,7 +1,5 @@
 window.onload = () => {
     game.TransitionTo('overWorld')
-    game.sceneName = "overWorld"
-    game.overWorld.Start()
 }
 
 var game = {
@@ -16,6 +14,7 @@ var game = {
 
         game[sceneName] = require('./scenes/' + sceneName + '/' + sceneName + '.js')
         game.sceneName = sceneName
+        game[sceneName].Start()
     }
 }
 
