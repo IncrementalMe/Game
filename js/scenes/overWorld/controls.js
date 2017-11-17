@@ -31,5 +31,8 @@ document.onkeydown = function (e) {
         case 27: // escape
             remote.getCurrentWindow().close()
             break
+
+        default:
+            game.defaultControls.KeyDown(e.keyCode)
     }
 }
