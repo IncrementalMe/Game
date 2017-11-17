@@ -6,17 +6,17 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <h1 class="ttCenter" id="test">World Map</h1>
-    <div class="ttCenter">Witty in-dev joke</div>
+    <div id="wrapper">
+        <h1 class="ttCenter" id="test">World Map</h1>
+        <div class="ttCenter">Witty in-dev joke</div>
 
-    <div id="tileWrapper">
-        <canvas id="mainCanvas"></canvas>
+        <div id="tileWrapper">
+            <canvas id="mainCanvas"></canvas>
+        </div>
     </div>
 
     <script>
-        require('./js/renderer.js')
-        require('./js/controls.js')
-        var overWorld = require('./js/overWorld.js')
+        var game = require('./js/game.js')
     </script>
 </body>
 </html>

@@ -1,31 +1,26 @@
-window.onload = () => {
-    draw.OnLoad()
-    overWorld.player.Spawn({ x: 1, y: 1 })
-}
-
 var draw = {
     fps: {
-        currentSecond: 0,
+    currentSecond: 0,
         frameCount: 0,
-        framesLastSecond: 0,
+            framesLastSecond: 0,
 
-        Update: function () {
-            var sec = Math.floor(Date.now() / 1000)
-            if (sec != this.currentSecond) {
-                this.currentSecond = sec
-                this.framesLastSecond = this.frameCount
-                this.frameCount = 1
-            }
-            else { this.frameCount++ }
-            ctx.fillStyle = "#ff0000"
-            ctx.fillText("FPS: " + this.framesLastSecond, 10, 20)
-        }
+                Update: function () {
+                    var sec = Math.floor(Date.now() / 1000)
+                    if (sec != this.currentSecond) {
+                        this.currentSecond = sec
+                        this.framesLastSecond = this.frameCount
+                        this.frameCount = 1
+                    }
+                    else { this.frameCount++ }
+                    ctx.fillStyle = "#ff0000"
+                    ctx.fillText("FPS: " + this.framesLastSecond, 10, 20)
+                }
     },
 
     OnLoad: function () {
         ctx = document.getElementById('mainCanvas').getContext("2d")
-        ctx.canvas.width = overWorld.width * overWorld.tileWidth
-        ctx.canvas.height = overWorld.height * overWorld.tileHeight
+        ctx.canvas.width = game.map.width * game.map.tileWidth
+        ctx.canvas.height = game.map.height * game.map.tileHeight
         requestAnimationFrame(draw.Update)
         ctx.font = "bold 10pt sans-serif"
     },
@@ -33,7 +28,7 @@ var draw = {
     Update: function () {
         if (ctx == null) { return }
 
-        overWorld.current.forEach((row, y) => {
+        game.map.current.forEach((row, y) => {
             row.forEach((tile, x) => {
                 draw.Tile({ x: x, y: y }, tile)
             })
@@ -62,17 +57,17 @@ var draw = {
         }
 
         var target = {
-            x: pos.x * overWorld.tileWidth,
-            y: pos.y * overWorld.tileHeight,
-            width: overWorld.tileWidth,
-            height: overWorld.tileHeight
+            x: pos.x * game.map.tileWidth,
+            y: pos.y * game.map.tileHeight,
+            width: game.map.tileWidth,
+            height: game.map.tileHeight
         }
 
         if ((pos.x + pos.y) % 2 === 0)
             ctx.fillStyle = draw.BrightenTile(ctx.fillStyle, 4)
         else
             ctx.fillStyle = draw.BrightenTile(ctx.fillStyle, -4)
-        
+
         if (fill)
             ctx.fillRect(target.x, target.y, target.width, target.height)
         else {
@@ -94,3 +89,5 @@ var draw = {
         return out
     }
 }
+
+module.exports = draw
