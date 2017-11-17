@@ -18,7 +18,7 @@ var draw = {
         }
     },
 
-    OnLoad: function () {
+    Start: function () {
         ctx = document.getElementById('mainCanvas').getContext('2d')
         ctx.canvas.width = game.overWorld.map.width * game.overWorld.map.tileWidth
         ctx.canvas.height = game.overWorld.map.height * game.overWorld.map.tileHeight

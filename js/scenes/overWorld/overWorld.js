@@ -4,8 +4,6 @@ var overWorld = {
     player: require('./player.js'),
 
     Start: function () {
-        require('./controls.js')
-
         document.getElementById('wrapper').innerHTML = 
             `<h1 class="ttCenter" id="test">World Map</h1>
             <div class="ttCenter">Witty in-dev joke</div>
@@ -14,7 +12,9 @@ var overWorld = {
             </div>`
 
         overWorld.player.Spawn({ x: 1, y: 1 })
-        overWorld.draw.OnLoad()
+        overWorld.draw.Start()
+
+        require('./controls.js')
     },
 
     Stop: function () {
