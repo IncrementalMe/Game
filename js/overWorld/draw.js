@@ -1,20 +1,20 @@
 var draw = {
     fps: {
-    currentSecond: 0,
+        currentSecond: 0,
         frameCount: 0,
-            framesLastSecond: 0,
+        framesLastSecond: 0,
 
-                Update: function () {
-                    var sec = Math.floor(Date.now() / 1000)
-                    if (sec != this.currentSecond) {
-                        this.currentSecond = sec
-                        this.framesLastSecond = this.frameCount
-                        this.frameCount = 1
-                    }
-                    else { this.frameCount++ }
-                    ctx.fillStyle = "#ff0000"
-                    ctx.fillText("FPS: " + this.framesLastSecond, 10, 20)
-                }
+        Update: function () {
+            var sec = Math.floor(Date.now() / 1000)
+            if (sec != this.currentSecond) {
+                this.currentSecond = sec
+                this.framesLastSecond = this.frameCount
+                this.frameCount = 1
+            }
+            else { this.frameCount++ }
+            ctx.fillStyle = "#ff0000"
+            ctx.fillText("FPS: " + this.framesLastSecond, 10, 20)
+        }
     },
 
     OnLoad: function () {

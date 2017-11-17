@@ -1,13 +1,14 @@
-var draw = require('./draw.js')
-require('./controls.js')
+var draw = require('./overWorld/draw.js')
+require('./overWorld/controls.js')
 
 window.onload = () => {
     draw.OnLoad()
-    game.map.player.Spawn({ x: 1, y: 1 })
+    game.player.Spawn({ x: 1, y: 1 })
 }
 
 var game = {
-    map: require('./overWorld.js')
+    map: require('./overWorld/map.js'),
+    player: require('./overWorld/player.js')
 }
 
 module.exports = game
