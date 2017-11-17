@@ -1,14 +1,22 @@
-var draw = require('./overWorld/draw.js')
-require('./overWorld/controls.js')
-
 window.onload = () => {
-    draw.OnLoad()
-    game.player.Spawn({ x: 1, y: 1 })
+    game.TransitionTo('overWorld')
+    game.sceneName = "overWorld"
+    game.overWorld.Start()
 }
 
 var game = {
-    map: require('./overWorld/map.js'),
-    player: require('./overWorld/player.js')
+    sceneName: '',
+
+    TransitionTo: function (sceneName) {
+        if (game.sceneName !== '') {
+            game[game.sceneName].Stop()
+            document.getElementById('wrapper').innerHTML = ''
+            delete game[game.sceneName]
+        }
+
+        game[sceneName] = require('./scenes/' + sceneName + '/' + sceneName + '.js')
+        game.sceneName = sceneName
+    }
 }
 
 module.exports = game

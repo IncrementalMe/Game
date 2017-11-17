@@ -1,4 +1,5 @@
 var draw = {
+
     fps: {
         currentSecond: 0,
         frameCount: 0,
@@ -19,16 +20,18 @@ var draw = {
 
     OnLoad: function () {
         ctx = document.getElementById('mainCanvas').getContext('2d')
-        ctx.canvas.width = game.map.width * game.map.tileWidth
-        ctx.canvas.height = game.map.height * game.map.tileHeight
+        ctx.canvas.width = game.overWorld.map.width * game.overWorld.map.tileWidth
+        ctx.canvas.height = game.overWorld.map.height * game.overWorld.map.tileHeight
         requestAnimationFrame(draw.Update)
         ctx.font = 'bold 10pt sans-serif'
     },
 
+    stopAnimating: false,
     Update: function () {
         if (ctx == null) { return }
+        if (draw.stopAnimating) { return }
 
-        game.map.current.forEach((row, y) => {
+        game.overWorld.map.current.forEach((row, y) => {
             row.forEach((tile, x) => {
                 draw.Tile({ x: x, y: y }, tile)
             })
@@ -57,10 +60,10 @@ var draw = {
         }
 
         var target = {
-            x: pos.x * game.map.tileWidth,
-            y: pos.y * game.map.tileHeight,
-            width: game.map.tileWidth,
-            height: game.map.tileHeight
+            x: pos.x * game.overWorld.map.tileWidth,
+            y: pos.y * game.overWorld.map.tileHeight,
+            width: game.overWorld.map.tileWidth,
+            height: game.overWorld.map.tileHeight
         }
 
         if ((pos.x + pos.y) % 2 === 0)

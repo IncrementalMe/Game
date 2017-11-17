@@ -2,7 +2,7 @@ var player = {
     pos: null,
 
     Spawn: function (pos) {
-        game.map.current[pos.y][pos.x] = 2
+        game.overWorld.map.current[pos.y][pos.x] = 2
         this.pos = pos
     },
 
@@ -10,16 +10,15 @@ var player = {
         if (this.pos == null) { return }
         var targetPos = { x: this.pos.x + dir.x, y: this.pos.y + dir.y }
 
-        switch (game.map.current[targetPos.y][targetPos.x]) {
+        switch (game.overWorld.map.current[targetPos.y][targetPos.x]) {
             case 1:
-                game.map.current[targetPos.y][targetPos.x] = 2
-                game.map.current[this.pos.y][this.pos.x] = 1
+                game.overWorld.map.current[targetPos.y][targetPos.x] = 2
+                game.overWorld.map.current[this.pos.y][this.pos.x] = 1
                 this.pos = targetPos
                 break
 
-            //case 3:
-                // Change to battle screen
-                //   
+            case 3:
+                game.TransitionTo('battle')
         }
     }
 }
