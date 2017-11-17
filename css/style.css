@@ -34,6 +34,16 @@ img {
     -webkit-touch-callout: none;
 }
 
+.ttCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ttItalic {
+    font-style: italic;
+}
+
+/* OverWorld */
 #tileWrapper {
     margin: 0 auto;
     height: 100%;
@@ -42,11 +52,6 @@ img {
     border: 10px solid black;
 }
 
-.ttCenter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.ttItalic {
-    font-style: italic;
+/* Battle */
+#battleCanvas {
 }
