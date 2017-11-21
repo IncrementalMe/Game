@@ -25,9 +25,15 @@ var draw = {
         draw.ctx.fillStyle = '#808080'
         draw.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
 
-        draw.ctx.fillStyle = '#50a060'
-        draw.ctx.fillRect(0, window.innerHeight * 0.55, window.innerWidth, window.innerWidth * 0.55)
 
+        draw.ctx.beginPath()
+        draw.ctx.fillStyle = '#50a060'
+        draw.ctx.arc(window.innerWidth / 2, window.innerHeight + 11685, 12000, 0, Math.PI, true)
+        draw.ctx.fill()
+
+        game.battle.enemyContainer.all.forEach(enemy => {
+            enemy.Update(draw.ctx)
+        })
 
         requestAnimationFrame(draw.Update)
     },
