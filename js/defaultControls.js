@@ -4,6 +4,7 @@ var defaultControls = {
     KeyDown: function (keyCode) {
         switch (keyCode) {
             case 27: // escape
+                game[game.sceneName].Stop()
                 defaultControls.remote.getCurrentWindow().close()
                 break
         }

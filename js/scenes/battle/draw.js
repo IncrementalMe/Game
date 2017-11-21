@@ -11,6 +11,12 @@ var draw = {
         requestAnimationFrame(draw.Update)
     },
 
+    Stop: function () {
+        draw.stopAnimating = true
+
+        window.removeEventListener('resize', draw.Resize)
+    },
+
     stopAnimating: false,
     Update: function () {
         if (draw.ctx == null) { return }

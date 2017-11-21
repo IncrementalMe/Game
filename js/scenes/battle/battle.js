@@ -12,6 +12,7 @@ var battle = {
     },
 
     Stop: function () {
+        battle.draw.Stop()
     }
 }
 
