@@ -1,6 +1,4 @@
 document.onkeydown = function (e) {
-    const remote = require('electron').remote
-
     switch (e.keyCode) {
         case 38: // up
             game.overWorld.player.TryMove({ x: 0, y: -1 })

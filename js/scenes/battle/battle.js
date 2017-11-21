@@ -1,7 +1,6 @@
 var battle = {
     draw: require('./draw.js'),
     enemy: require('./enemy.js'),
-
     enemyContainer: { all: [] },
 
     Start: function () {

@@ -25,7 +25,6 @@ var draw = {
         draw.ctx.fillStyle = '#808080'
         draw.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
 
-
         draw.ctx.beginPath()
         draw.ctx.fillStyle = '#50a060'
         draw.ctx.arc(window.innerWidth / 2, window.innerHeight + 11685, 12000, 0, Math.PI, true)
