@@ -1,29 +1,34 @@
-window.addEventListener('resize', function (e) {
-    ctx.canvas.width = window.innerWidth
-    ctx.canvas.height = window.innerHeight
-})
-
 var draw = {
+    ctx: null,
+
     Start: function () {
-        ctx = document.getElementById('battleCanvas').getContext('2d')
-        ctx.canvas.width = window.innerWidth
-        ctx.canvas.height = window.innerHeight
+        draw.ctx = document.getElementById('battleCanvas').getContext('2d')
+        draw.ctx.canvas.width = window.innerWidth
+        draw.ctx.canvas.height = window.innerHeight
+
+        window.addEventListener('resize', draw.Resize)
+
         requestAnimationFrame(draw.Update)
-        ctx.font = 'bold 10pt sans-serif'
     },
 
     stopAnimating: false,
     Update: function () {
-        if (ctx == null) { return }
+        if (draw.ctx == null) { return }
         if (draw.stopAnimating) { return }
 
-        ctx.fillStyle = '#808080'
-        ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
+        draw.ctx.fillStyle = '#808080'
+        draw.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
 
-        ctx.fillStyle = '#50a060'
-        ctx.fillRect(0, window.innerHeight * 0.55, window.innerWidth, window.innerWidth * 0.55)
+        draw.ctx.fillStyle = '#50a060'
+        draw.ctx.fillRect(0, window.innerHeight * 0.55, window.innerWidth, window.innerWidth * 0.55)
+
 
         requestAnimationFrame(draw.Update)
+    },
+
+    Resize: function () {
+        draw.ctx.canvas.width = window.innerWidth
+        draw.ctx.canvas.height = window.innerHeight
     }
 }
 
