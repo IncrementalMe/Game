@@ -4,7 +4,7 @@ var defaultControls = {
     KeyDown: function (keyCode) {
         switch (keyCode) {
             case 27: // escape
-                remote.getCurrentWindow().close()
+                defaultControls.remote.getCurrentWindow().close()
                 break
         }
     }
