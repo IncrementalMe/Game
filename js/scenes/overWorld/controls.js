@@ -1,36 +1,36 @@
 document.onkeydown = function (e) {
-    switch (e.keyCode) {
-        case 38: // up
-            game.overWorld.player.TryMove({ x: 0, y: -1 })
-            break
-        case 39: // right
-            game.overWorld.player.TryMove({ x: 1, y: 0 })
-            break
-        case 40: // down
-            game.overWorld.player.TryMove({ x: 0, y: 1 })
-            break
-        case 37: // left
-            game.overWorld.player.TryMove({ x: -1, y: 0 })
-            break
+  switch (e.keyCode) {
+    case 38: // up
+      window.game.overWorld.player.TryMove({ x: 0, y: -1 })
+      break
+    case 39: // right
+      window.game.overWorld.player.TryMove({ x: 1, y: 0 })
+      break
+    case 40: // down
+      window.game.overWorld.player.TryMove({ x: 0, y: 1 })
+      break
+    case 37: // left
+      window.game.overWorld.player.TryMove({ x: -1, y: 0 })
+      break
 
-        case 87: // w
-            game.overWorld.player.TryMove({ x: 0, y: -1 })
-            break
-        case 68: // d
-            game.overWorld.player.TryMove({ x: 1, y: 0 })
-            break
-        case 83: // s
-            game.overWorld.player.TryMove({ x: 0, y: 1 })
-            break
-        case 65: // a
-            game.overWorld.player.TryMove({ x: -1, y: 0 })
-            break
+    case 87: // w
+      window.game.overWorld.player.TryMove({ x: 0, y: -1 })
+      break
+    case 68: // d
+      window.game.overWorld.player.TryMove({ x: 1, y: 0 })
+      break
+    case 83: // s
+      window.game.overWorld.player.TryMove({ x: 0, y: 1 })
+      break
+    case 65: // a
+      window.game.overWorld.player.TryMove({ x: -1, y: 0 })
+      break
 
-        case 27: // escape
-            remote.getCurrentWindow().close()
-            break
+    case 27: // escape
+      window.remote.getCurrentWindow().close()
+      break
 
-        default:
-            game.defaultControls.KeyDown(e.keyCode)
-    }
+    default:
+      window.game.defaultControls.KeyDown(e.keyCode)
+  }
 }

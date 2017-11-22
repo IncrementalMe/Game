@@ -8,14 +8,14 @@ const url = require('url')
 let mainWindow
 
 function createWindow () {
-    mainWindow = new BrowserWindow({ width: 900, height: 600, frame: false})
-    
+  mainWindow = new BrowserWindow({ width: 900, height: 600, frame: false })
+
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
-    
+
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
