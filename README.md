@@ -1,4 +1,4 @@
-#Game
+# Game
 
 Just another turn based javascript game
 
@@ -9,6 +9,8 @@ Icons by Lorc http://lorcblog.blogspot.com
 (CC BY 3.0) https://creativecommons.org/licenses/by/3.0/
 
 ### Setup
+
+Requires Node:https://nodejs.org/en/download/
 
 1. Clone the repository 
     ```bash
