@@ -8,7 +8,7 @@ var draw = {
 
     window.addEventListener('resize', draw.Resize)
 
-    requestAnimationFrame(draw.Update)
+    window.requestAnimationFrame(draw.Update)
   },
 
   Stop: function () {
