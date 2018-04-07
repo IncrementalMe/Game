@@ -1,6 +1,6 @@
 function Enemy (pos = { x: 0, y: 0 }) {
   this.img = document.createElement('img')
-  this.img.src = ('./img/teeth.png')
+  this.img.src = ('./img/lorc/teeth.png')
   this.render = true
 
   this.pos = pos

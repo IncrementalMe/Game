@@ -74,7 +74,7 @@ var draw = {
       draw.ctx.fillRect(target.x, target.y, target.width, target.height)
     } else {
       var img = document.createElement('img')
-      img.src = ('./img/teeth.png')
+      img.src = ('./img/lorc/teeth.png')
       draw.ctx.drawImage(img, target.x, target.y, target.width, target.height)
     }
   },

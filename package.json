@@ -1,5 +1,5 @@
 {
-  "name": "GameName",
+  "name": "gamename",
   "version": "0.0.4",
   "description": "Just another electron game.",
   "main": "main.js",
