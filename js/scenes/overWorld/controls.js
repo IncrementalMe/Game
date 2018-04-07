@@ -26,10 +26,6 @@ document.onkeydown = function (e) {
       window.game.overWorld.player.TryMove({ x: -1, y: 0 })
       break
 
-    case 27: // escape
-      window.remote.getCurrentWindow().close()
-      break
-
     default:
       window.game.defaultControls.KeyDown(e.keyCode)
   }
