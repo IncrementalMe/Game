@@ -20,8 +20,8 @@ var draw = {
 
   Start: function () {
     draw.ctx = document.getElementById('mainCanvas').getContext('2d')
-    draw.ctx.canvas.width = window.game.overWorld.map.width * window.game.overWorld.map.tileWidth
-    draw.ctx.canvas.height = window.game.overWorld.map.height * window.game.overWorld.map.tileHeight
+    draw.ctx.canvas.width = window.game.scene.map.width * window.game.scene.map.tileWidth
+    draw.ctx.canvas.height = window.game.scene.map.height * window.game.scene.map.tileHeight
 
     window.requestAnimationFrame(draw.Update)
   },
@@ -31,7 +31,7 @@ var draw = {
     if (draw.ctx === null) { return }
     if (draw.stopAnimating) { return }
 
-    window.game.overWorld.map.current.forEach((row, y) => {
+    window.game.scene.map.current.forEach((row, y) => {
       row.forEach((tile, x) => {
         draw.Tile({ x: x, y: y }, tile)
       })
@@ -59,10 +59,10 @@ var draw = {
     }
 
     var target = {
-      x: pos.x * window.game.overWorld.map.tileWidth,
-      y: pos.y * window.game.overWorld.map.tileHeight,
-      width: window.game.overWorld.map.tileWidth,
-      height: window.game.overWorld.map.tileHeight
+      x: pos.x * window.game.scene.map.tileWidth,
+      y: pos.y * window.game.scene.map.tileHeight,
+      width: window.game.scene.map.tileWidth,
+      height: window.game.scene.map.tileHeight
     }
 
     if ((pos.x + pos.y) % 2 === 0) {

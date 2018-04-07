@@ -4,19 +4,19 @@ window.onload = () => {
 
 var game = {
   defaultControls: require('./defaultControls'),
-  sceneName: '',
+  scene: {active: false},
 
   TransitionTo: function (sceneName) {
-    if (game.sceneName !== '') {
-      game[game.sceneName].Stop()
+    if (game.scene.active) {
+      game.scene.Stop()
       document.onkeydown = function (e) { game.defaultControls.KeyDown(e.keyCode) }
       document.getElementById('wrapper').innerHTML = ''
-      delete game[game.sceneName]
+      delete game.scene
     }
 
-    game[sceneName] = require('./scenes/' + sceneName + '/' + sceneName + '.js')
-    game.sceneName = sceneName
-    game[sceneName].Start()
+    game.scene = require('./scenes/' + sceneName + '/' + sceneName + '.js')
+    game.scene.Start()
+    game.scene.active = true
   }
 }
 
