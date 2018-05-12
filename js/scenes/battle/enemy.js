@@ -6,12 +6,6 @@ function Enemy (pos = { x: 0, y: 0 }) {
   this.pos = pos
   this.scale = { width: 55, hieght: 55 }
 
-  this.Start = function () {
-    document.getElementById('wrapper').innerHTML =
-      `<canvas id="battleCanvas"></canvas>`
-    window.battle.draw.Start()
-  }
-
   this.Update = function (ctx) {
     if (this.render) this.Draw(ctx)
   }

@@ -2,6 +2,7 @@ var overWorld = {
   draw: require('./draw.js'),
   map: require('./map.js'),
   player: require('./player.js'),
+  controls: require('./controls.js'),
 
   Start: function () {
     document.getElementById('wrapper').innerHTML =
@@ -14,10 +15,15 @@ var overWorld = {
     overWorld.player.Spawn({ x: 1, y: 1 })
     overWorld.draw.Start()
 
-    require('./controls.js')
+    document.onkeydown = function (e) { overWorld.controls.keyDown(e) }
+  },
+
+  Update: function () {
   },
 
   Stop: function () {
+    document.onkeydown = function () {}
+    overWorld.controls = null
     overWorld.draw.stopAnimating = true
   }
 }

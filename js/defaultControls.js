@@ -2,11 +2,9 @@ var defaultControls = {
   remote: require('electron').remote,
 
   KeyDown: function (keyCode) {
-    switch (keyCode) {
-      case 27: // escape
-        window.game.scene.Stop()
-        defaultControls.remote.getCurrentWindow().close()
-        break
+    if (keyCode === 27) { // esc
+      window.game.scene.Stop()
+      defaultControls.remote.getCurrentWindow().close()
     }
   }
 }

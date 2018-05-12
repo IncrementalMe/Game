@@ -7,8 +7,6 @@ var draw = {
     draw.ctx.canvas.height = window.innerHeight
 
     window.addEventListener('resize', draw.Resize)
-
-    window.requestAnimationFrame(draw.Update)
   },
 
   Stop: function () {
@@ -20,21 +18,21 @@ var draw = {
   stopAnimating: false,
   Update: function () {
     if (draw.ctx === null) { return }
-    if (draw.stopAnimating) { return }
+    var ctx = draw.ctx
 
-    draw.ctx.fillStyle = '#808080'
-    draw.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
+    ctx.fillStyle = '#808080'
+    ctx.fillRect(0, 0, window.innerWidth, window.innerHeight)
 
-    draw.ctx.beginPath()
-    draw.ctx.fillStyle = '#509060'
-    draw.ctx.arc(window.innerWidth / 2, window.innerHeight + 11685, 12000, 0, Math.PI, true)
-    draw.ctx.fill()
+    ctx.beginPath()
+    ctx.fillStyle = '#509060'
+    ctx.arc(window.innerWidth / 2, window.innerHeight + 11685, 12000, 0, Math.PI, true)
+    ctx.fill()
 
-    window.game.battle.enemyContainer.all.forEach(enemy => {
+    window.game.scene.player.Draw(ctx)
+
+    window.game.scene.enemyContainer.all.forEach(enemy => {
       enemy.Update(draw.ctx)
     })
-
-    window.requestAnimationFrame(draw.Update)
   },
 
   Resize: function () {

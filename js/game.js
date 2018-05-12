@@ -1,15 +1,16 @@
 window.onload = () => {
   game.TransitionTo('overWorld')
+  game.loop.Start(game)
 }
 
 var game = {
   defaultControls: require('./defaultControls'),
+  loop: require('./loop'),
   scene: {active: false},
 
   TransitionTo: function (sceneName) {
     if (game.scene.active) {
       game.scene.Stop()
-      document.onkeydown = function (e) { game.defaultControls.KeyDown(e.keyCode) }
       document.getElementById('wrapper').innerHTML = ''
       delete game.scene
     }
@@ -18,6 +19,7 @@ var game = {
     game.scene.Start()
     game.scene.active = true
   }
+
 }
 
 module.exports = game

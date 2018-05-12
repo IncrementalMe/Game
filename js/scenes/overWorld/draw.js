@@ -1,27 +1,10 @@
 var draw = {
   ctx: null,
 
-  fps: {
-    currentSecond: 0,
-    frameCount: 0,
-    framesLastSecond: 0,
-
-    Update: function () {
-      var sec = Math.floor(Date.now() / 1000)
-      if (sec !== this.currentSecond) {
-        this.currentSecond = sec
-        this.framesLastSecond = this.frameCount
-        this.frameCount = 1
-      } else { this.frameCount++ }
-      draw.ctx.fillStyle = '#ff0000'
-      draw.ctx.fillText('FPS: ' + this.framesLastSecond, 10, 20)
-    }
-  },
-
   Start: function () {
     draw.ctx = document.getElementById('mainCanvas').getContext('2d')
-    draw.ctx.canvas.width = window.game.scene.map.width * window.game.scene.map.tileWidth
-    draw.ctx.canvas.height = window.game.scene.map.height * window.game.scene.map.tileHeight
+    draw.ctx.canvas.width = window.innerWidth
+    draw.ctx.canvas.height = window.innerHeight
 
     window.requestAnimationFrame(draw.Update)
   },
@@ -36,9 +19,6 @@ var draw = {
         draw.Tile({ x: x, y: y }, tile)
       })
     })
-
-    draw.fps.Update()
-    window.requestAnimationFrame(draw.Update)
   },
 
   Tile: function (pos, tile) {
