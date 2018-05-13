@@ -14,7 +14,7 @@ var player = {
   TryMove: function () {
     if (this.pos === null) { return }
 
-    var keysDown = window.game.scene.controlMap
+    var keysDown = window.game.keysDown
     var dir = { x: 0, y: 0 }
 
     if (keysDown['87'] === true) dir.y -= 1 // w

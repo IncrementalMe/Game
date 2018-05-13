@@ -3,13 +3,8 @@ var battle = {
   player: require('./player.js'),
   Enemy: require('./enemy.js'),
   enemyContainer: { all: [] },
-  controlMap: {},
 
   Start: function () {
-    window.onkeydown = window.onkeyup = function (e) {
-      battle.controlMap[e.keyCode] = e.type === 'keydown'
-    }
-
     document.getElementById('wrapper').innerHTML =
       `<canvas id="battleCanvas"></canvas>`
 

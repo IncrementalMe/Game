@@ -1,12 +1,16 @@
 window.onload = () => {
   game.TransitionTo('overWorld')
   game.loop.Start(game)
+
+  window.onkeydown = window.onkeyup = function (e) {
+    game.keysDown[e.keyCode] = e.type === 'keydown'
+  }
 }
 
 var game = {
-  defaultControls: require('./defaultControls'),
   loop: require('./loop'),
   scene: {active: false},
+  keysDown: {},
 
   TransitionTo: function (sceneName) {
     if (game.scene.active) {

@@ -26,9 +26,6 @@ var controls = {
       case 65: // a
         window.game.scene.player.TryMove({ x: -1, y: 0 })
         break
-
-      default:
-        window.game.defaultControls.KeyDown(e.keyCode)
     }
   }
 }
