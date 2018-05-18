@@ -5,7 +5,7 @@ var draw = {
     draw.ctx = document.getElementById('battleCanvas').getContext('2d')
     draw.ctx.canvas.width = window.innerWidth
     draw.ctx.canvas.height = window.innerHeight
-
+    draw.ctx.imageSmoothingEnabled = false
     window.addEventListener('resize', draw.Resize)
   },
 
